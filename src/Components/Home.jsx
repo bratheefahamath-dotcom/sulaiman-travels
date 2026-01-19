@@ -18,10 +18,6 @@ const Home = () => {
 
   useGSAP(
     () => {
-      // 1. SAFETY RESET FOR NAVBAR
-      // Ensures navbar is visible when page loads/refreshes
-      gsap.set(".floating-nav", { y: 0, opacity: 1, clearProps: "all" });
-
       const vh = window.innerHeight;
       const vw = window.innerWidth;
 
@@ -318,10 +314,6 @@ const Home = () => {
 
       // === PHASE 7: PACKAGE REVEAL ===
       const contentRevealStart = transStart + 2.0;
-
-      // --- CRITICAL FIX: BRING PACKAGE LAYER TO FRONT ---
-      // This allows buttons to be clickable
-      tl.set(".package-layer-wrapper", { zIndex: 15 }, contentRevealStart);
 
       // Swap visibility
       tl.set(".gallery-final-target", { opacity: 0 }, contentRevealStart);
