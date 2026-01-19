@@ -45,3 +45,24 @@ html {
   font-display: swap;
   font-style: normal;
 }
+
+.spline-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* or 100vw */
+  height: 100vh;
+  /* Force it to be the full screen height */
+  overflow: hidden;
+  /* Prevent scrollbars */
+  z-index: 1;
+  /* Ensure it sits behind your text */
+}
+
+.spline-wrapper canvas {
+  display: block;
+  /* Removes bottom spacing/ghost margins */
+  width: 100% !important;
+  height: 100% !important;
+}
