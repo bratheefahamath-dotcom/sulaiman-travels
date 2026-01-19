@@ -1,0 +1,147 @@
+.home-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #ecb454;
+}
+
+/* --- LAYER 1: PACKAGE (Base Layer) --- */
+/* FIX: pointer-events: auto allows clicks on buttons inside */
+.package-layer-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Moves to 15 via JS in Phase 7 */
+    background-color: #fff;
+    pointer-events: auto;
+}
+
+/* --- LAYER 2: GALLERY (Items Layer) --- */
+/* FIX: pointer-events: none lets clicks pass through the empty transparent parts */
+.gallery-layer-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+/* FIX: But actual gallery items should still be clickable if needed */
+.gallery-item {
+    pointer-events: auto;
+}
+
+/* --- LAYER 3: ABOUT (Middle Layer) --- */
+.about-layer-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    will-change: clip-path;
+    background-color: #ecb454;
+    pointer-events: none;
+    /* Text is informational only, no clicks needed usually */
+}
+
+/* --- LAYER 4: HERO (Top Layer) --- */
+/* FIX: pointer-events: none lets clicks pass through to layers below when this is transparent */
+.hero-layer-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+    will-change: clip-path;
+    pointer-events: none;
+}
+
+/* FIX: But actual Hero content (text/buttons) MUST be clickable */
+.hero {
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+}
+
+/* --- LAYER 5: PLANE (Overlay) --- */
+.plane-layer-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- FOOTER LAYER --- */
+.footer-layer-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    /* Highest layer */
+    background-color: #1a1a1a;
+    transform: translateY(100%);
+    pointer-events: auto;
+    /* Footer links must be clickable */
+}
+
+/* PLANE IMG */
+.home-plane-img {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(35%);
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    will-change: transform;
+
+    width: 110vw;
+    height: auto;
+    object-fit: contain;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+    .home-plane-img {
+        width: 110vw;
+        transform: translateY(30%);
+    }
+}
+
+@media (min-width: 1024px) {
+    .home-plane-img {
+        width: 60vw;
+        max-width: 900px;
+        transform: translateY(35%);
+    }
+}
+
+@media (min-width: 1440px) {
+    .home-plane-img {
+        width: 75vw;
+        max-width: 800px;
+        transform: translateY(33%);
+    }
+}
+
+@media (min-width: 1920px) {
+    .home-plane-img {
+        width: 85vw;
+        max-width: 1300px;
+        transform: translateY(35%);
+    }
+}

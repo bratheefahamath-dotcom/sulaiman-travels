@@ -1,0 +1,231 @@
+.footer-section {
+    width: 100%;
+    background-color: #1a1a1a;
+    /* Matches the 'MainBody' color of the Makkah icon in About.js */
+    color: #ffffff;
+    padding: 80px 5vw 30px 5vw;
+    box-sizing: border-box;
+    font-family: 'GeneralSans-Variable', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* --- GRID LAYOUT --- */
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+/* --- COL 1: BRAND --- */
+.brand-col {
+    padding-right: 20px;
+}
+
+.footer-logo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    margin: 0;
+}
+
+.brand-sub {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: #ecb454;
+    /* Gold */
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.footer-motto {
+    font-size: 0.95rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 300px;
+}
+
+.trust-badge span {
+    border: 1px solid #ecb454;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    color: #ecb454;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+/* --- HEADINGS --- */
+.col-title {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.col-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 2px;
+    background-color: #ecb454;
+}
+
+/* --- DETAILS (Address/Contact) --- */
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.detail-item .icon {
+    font-size: 1.2rem;
+    margin-top: -2px;
+}
+
+.detail-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #d1d1d1;
+    line-height: 1.5;
+}
+
+.detail-item a {
+    color: #d1d1d1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.detail-item a:hover {
+    color: #ecb454;
+}
+
+/* --- NEWSLETTER --- */
+.newsletter-text {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 15px;
+    border-radius: 6px;
+    color: #fff;
+    outline: none;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #ecb454;
+}
+
+.gold-btn {
+    background-color: #ecb454;
+    color: #1a1a1a;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.gold-btn:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+}
+
+/* --- BOTTOM BAR --- */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Developer Credit Styling */
+.dev-credit {
+    font-size: 0.85rem;
+    color: #666;
+    opacity: 0.8;
+}
+
+.dev-credit a {
+    color: #a0a0a0;
+    /* Slightly brighter than the text */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.dev-credit a:hover {
+    color: #ecb454;
+    /* Turns Gold on hover */
+    text-decoration: underline;
+}
+
+.footer-bottom .d-reg {
+    color: #ecb454;
+    font-weight: 500;
+}
+
+.footer-bottom .d-reg {
+    color: #ecb454;
+    font-weight: 500;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+       
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        /* Reduce gap for mobile */
+    }
+
+    /* Ensure order on mobile if needed, or keep default stacking */
+    .dev-credit {
+        order: 3;
+        /* Puts developer credit at the very bottom on mobile */
+        margin-top: 10px;
+    }
+}

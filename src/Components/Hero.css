@@ -1,0 +1,404 @@
+/* =========================================
+   1. BASE STYLES
+   ========================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #8cd3f5;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Layer Management */
+.bg-stream,
+.bg-stream-slow {
+    z-index: 1;
+}
+
+.hero-bg-text-container {
+    z-index: 10;
+}
+
+.hero-info-item {
+    z-index: 20;
+}
+
+.brand-section {
+    z-index: 50;
+}
+
+/* Optimization */
+.bg-stream img,
+.bg-stream-slow img,
+.hero-info-item,
+.brand-section {
+    will-change: transform, opacity;
+}
+
+/* Background Streams */
+.bg-stream img,
+.bg-stream-slow img {
+    width: 40vw;
+    filter: blur(2px);
+}
+
+/* Brand Section */
+.brand-section {
+    position: relative;
+    margin-top: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-logo {
+    width: 70px;
+    height: auto;
+    margin-bottom: 3px;
+    display: block;
+}
+
+.brand-name {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1;
+    color: #1a1a1a;
+}
+
+.brand-subtitle {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-top: 5px;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- NEW: INFO ITEMS (Clean Typography) --- */
+.hero-info-item {
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Wrapper to handle text alignment */
+.info-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* LEFT SIDE ITEMS: Align Left */
+.info-tl .info-text-container,
+.info-bl .info-text-container {
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* RIGHT SIDE ITEMS: Align Right */
+.info-tr .info-text-container,
+.info-br .info-text-container {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.info-title {
+    font-family: 'Switzer-Variable', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    /* Dark text for contrast */
+    margin: 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.info-subtitle-content {
+    font-family: 'GeneralSans-Variable', sans-serif;
+    font-size: 0.85rem;
+    color: #4a4a4a;
+    /* Dark Grey */
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Decorative Gold Line */
+.info-line {
+    height: 3px;
+    background-color: #ecb454;
+    /* Gold */
+    border-radius: 2px;
+}
+
+/* --- POSITIONS --- */
+
+/* Mobile Positions (Compact) */
+.info-tl {
+    top: 18%;
+    left: 5%;
+    width: 160px;
+}
+
+.info-tr {
+    top: 18%;
+    right: 5%;
+    width: 160px;
+}
+
+.info-bl {
+    bottom: 25%;
+    left: 5%;
+    width: 160px;
+}
+
+.info-br {
+    bottom: 25%;
+    right: 5%;
+    width: 160px;
+}
+
+
+/* Background Text */
+.hero-bg-text-container {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2%;
+    pointer-events: none;
+    user-select: none;
+}
+
+.bg-text-left,
+.bg-text-right {
+    font-size: 10vw;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: -0.05em;
+    margin: 0;
+    line-height: 1;
+}
+
+.bg-text-left {
+    transform-origin: right center;
+}
+
+.bg-text-right {
+    transform-origin: left center;
+}
+
+/* =========================================
+   2. MEDIA QUERIES
+   ========================================= */
+
+/* Tablet */
+@media (min-width: 768px) {
+    .brand-section {
+        margin-top: 120px;
+    }
+
+    .hero-logo {
+        width: 100px;
+    }
+
+    .brand-name {
+        font-size: 3rem;
+    }
+
+    .info-title {
+        font-size: 1.3rem;
+    }
+
+    .info-subtitle-content {
+        font-size: 0.9rem;
+    }
+
+    .info-tl {
+        top: 15%;
+        left: 8%;
+        width: 220px;
+    }
+
+    .info-tr {
+        top: 15%;
+        right: 8%;
+        width: 220px;
+    }
+
+    .info-bl {
+        bottom: 20%;
+        left: 8%;
+        width: 220px;
+    }
+
+    .info-br {
+        bottom: 20%;
+        right: 8%;
+        width: 220px;
+    }
+
+    .hero-bg-text-container {
+        bottom: 48%;
+        padding: 0 3%;
+    }
+}
+
+/* Laptop */
+@media (min-width: 1024px) {
+    .brand-section {
+        margin-top: 35px;
+    }
+
+    .brand-name {
+        font-size: 3rem;
+    }
+
+    .info-title {
+        font-size: 1.5rem;
+    }
+
+    .info-subtitle-content {
+        font-size: 1rem;
+    }
+
+    /* Spread them out more to frame the plane */
+    .info-tl {
+        top: 15%;
+        left: 12%;
+        width: 250px;
+    }
+
+    .info-tr {
+        top: 15%;
+        right: 12%;
+        width: 250px;
+    }
+
+    .info-bl {
+        bottom: 15%;
+        left: 12%;
+        width: 250px;
+    }
+
+    .info-br {
+        bottom: 15%;
+        right: 12%;
+        width: 250px;
+    }
+
+    .hero-bg-text-container {
+        bottom: 38%;
+        padding: 0 5%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+    .brand-section {
+        margin-top: 100px;
+    }
+
+    .hero-logo {
+        width: 120px;
+    }
+
+    .info-title {
+        font-size: 1.8rem;
+    }
+
+    .info-subtitle-content {
+        font-size: 1.1rem;
+    }
+
+    .info-tl {
+        top: 15%;
+        left: 15%;
+        width: 300px;
+    }
+
+    .info-tr {
+        top: 15%;
+        right: 15%;
+        width: 300px;
+    }
+
+    .info-bl {
+        bottom: 15%;
+        left: 15%;
+        width: 300px;
+    }
+
+    .info-br {
+        bottom: 15%;
+        right: 15%;
+        width: 300px;
+    }
+
+    .hero-bg-text-container {
+        bottom: 40%;
+        padding: 0 6%;
+    }
+}
+
+/* Extra Large */
+@media (min-width: 1920px) {
+    .brand-section {
+        margin-top: 130px;
+    }
+
+    .hero-logo {
+        width: 150px;
+    }
+
+    .brand-name {
+        font-size: 5.5rem;
+    }
+
+    .info-title {
+        font-size: 2.2rem;
+    }
+
+    .info-subtitle-content {
+        font-size: 1.3rem;
+    }
+
+    .info-tl {
+        top: 18%;
+        left: 18%;
+        width: 350px;
+    }
+
+    .info-tr {
+        top: 18%;
+        right: 18%;
+        width: 350px;
+    }
+
+    .info-bl {
+        bottom: 18%;
+        left: 18%;
+        width: 350px;
+    }
+
+    .info-br {
+        bottom: 18%;
+        right: 18%;
+        width: 350px;
+    }
+
+    .hero-bg-text-container {
+        bottom: 36%;
+        padding: 0 8%;
+    }
+}

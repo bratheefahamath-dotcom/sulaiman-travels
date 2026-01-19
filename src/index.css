@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* 2. Global Reset (Moved from Hero.css to apply everywhere) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ --font-sans: 'GeneralSans-Variable', sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* 3. Global Body Settings */
+body {
+  width: 100%;
+  overflow-x: hidden;
+  /* Prevents unwanted horizontal scrolling on mobile */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+
+  --font-sans: 'GeneralSans-Variable', sans-serif;
+  --font-switzer: 'Switzer-Variable', sans-serif;
+}
+
+/* --- 1. LOAD SWITZER (Titles) --- */
+@font-face {
+  font-family: 'Switzer-Variable';
+  src: url('./assets/fonts/Switzer-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+/* --- 2. LOAD GENERAL SANS (Body) --- */
+@font-face {
+  font-family: 'GeneralSans-Variable';
+  src: url('./assets/fonts/GeneralSans-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}

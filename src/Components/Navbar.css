@@ -1,0 +1,105 @@
+/* --- FLOATING NAVBAR CONTAINER --- */
+.floating-nav {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    background-color: #1a1a1a;
+    /* Dark background */
+    padding: 5px;
+    height: 50px;
+    min-width: 320px;
+
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Switzer-Variable', sans-serif;
+}
+
+/* --- LIST STYLING --- */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* --- THE SLIDING GOLD BACKGROUND --- */
+.nav-indicator {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: #ecb454;
+    /* Gold */
+    border-radius: 8px;
+    z-index: 0;
+
+    /* Smooth sliding animation */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: none;
+}
+
+/* --- ITEMS --- */
+.nav-item {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- LINKS (TEXT COLORS) --- */
+.nav-link {
+    text-decoration: none;
+    color: #a0a0a0;
+    /* Default: Grey */
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* 1. ACTIVE STATE (Idle) */
+/* When simply looking at the active page, text is Black (on Gold) */
+.active-text {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* 2. HOVERING THE MENU (The Fix) */
+/* When mouse enters the menu, revert the Active link to GREY... */
+/* ...because the gold pill might slide away from it. */
+.nav-links:hover .active-text {
+    color: #a0a0a0;
+    font-weight: 500;
+}
+
+/* 3. HOVERING A SPECIFIC ITEM */
+/* The item currently under the mouse ALWAYS gets Black text (on Gold) */
+/* This overrides the rule above. */
+.nav-links .nav-item:hover .nav-link {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .floating-nav {
+        min-width: 90%;
+        bottom: 20px;
+    }
+}

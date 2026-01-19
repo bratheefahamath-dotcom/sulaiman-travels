@@ -1,0 +1,169 @@
+.gallery-section {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* --- VIGNETTE MASKS --- */
+.gallery-section::before,
+.gallery-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 15vw;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.gallery-section::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
+    /* White fade */
+}
+
+.gallery-section::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
+    /* White fade */
+}
+
+/* --- TITLE (UPDATED TO MATCH CONTACT STYLE) --- */
+.gallery-header {
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 50;
+    padding: 0 20px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.gallery-subtitle {
+    font-family: 'GeneralSans-Variable', sans-serif;
+    color: #ecb454;
+    /* Gold Subtitle */
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.gallery-title {
+    font-family: 'Switzer-Variable', sans-serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    /* Responsive scaling like Contact */
+    font-weight: 700;
+    color: #1a1a1a;
+    /* Dark Text */
+    margin: 0;
+    line-height: 1.1;
+}
+
+.text-gold {
+    color: #ecb454;
+}
+
+/* --- GRID --- */
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-row {
+    display: flex;
+    width: max-content;
+    gap: 15px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    will-change: transform;
+    z-index: 1;
+}
+
+/* NORMAL ITEMS */
+.gallery-item {
+    width: 120px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    transform: translateZ(0);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    filter: brightness(1.02);
+    transition: transform 0.5s ease;
+}
+
+/* The Target Item (Center) adjustments */
+.gallery-center-target {
+    border: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 16px;
+    background-color: #ffffff;
+}
+
+/* --- RESPONSIVE SIZES --- */
+@media (min-width: 768px) {
+    .gallery-row {
+        gap: 15px;
+    }
+
+    .gallery-item {
+        width: 150px;
+        height: 100px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery-row {
+        gap: 18px;
+    }
+
+    .gallery-item {
+        width: 190px;
+        height: 125px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .gallery-row {
+        gap: 20px;
+    }
+
+    .gallery-item {
+        width: 230px;
+        height: 150px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .gallery-row {
+        gap: 30px;
+    }
+
+    .gallery-item {
+        width: 400px;
+        height: 260px;
+    }
+}

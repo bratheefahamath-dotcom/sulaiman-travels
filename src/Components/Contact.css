@@ -1,0 +1,256 @@
+.contact-section {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 80px 5vw;
+    font-family: 'GeneralSans-Variable', sans-serif;
+    min-height: 100vh;
+    /* Ensures it fills screen nicely */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* --- HEADER --- */
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    color: #ecb454;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.text-gold {
+    color: #ecb454;
+}
+
+/* --- GRID LAYOUT --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* --- FORM STYLES --- */
+.form-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-family: 'Switzer-Variable', sans-serif;
+}
+
+.form-desc {
+    color: #a0a0a0;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-row {
+    display: flex;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+    
+}
+
+.input-group select option {
+    background-color: #1a1a1a;
+    /* Dark background */
+    color: #ffffff;
+    /* White text */
+    padding: 10px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: #ccc;
+    font-weight: 500;
+}
+
+/* Custom Input Styling */
+.input-group input,
+.input-group select,
+.input-group textarea {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    color: #fff;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #ecb454;
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(236, 180, 84, 0.1);
+}
+
+.input-group select {
+    cursor: pointer;
+}
+
+/* Button Styling */
+.submit-btn {
+    background-color: #ecb454;
+    color: #1a1a1a;
+    border: none;
+    padding: 18px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+}
+
+/* --- INFO CARDS (RIGHT SIDE) --- */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.gold-border {
+    border: 1px solid rgba(236, 180, 84, 0.3);
+    background: linear-gradient(145deg, rgba(236, 180, 84, 0.05), transparent);
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.card-content h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.card-content p {
+    margin: 0 0 10px 0;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Phone Number Links */
+.big-link {
+    display: block;
+    font-size: 1.4rem;
+    color: #ecb454;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.sub-link {
+    display: block;
+    color: #fff;
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.big-link:hover {
+    text-decoration: underline;
+}
+
+/* Map Placeholder */
+.map-placeholder {
+    margin-top: 10px;
+    display: inline-block;
+    color: #ecb454;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed #ecb454;
+    cursor: pointer;
+}
+
+/* Closed Text */
+.closed-text {
+    color: #ff6b6b !important;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        /* Stack vertically on tablets */
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .input-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
