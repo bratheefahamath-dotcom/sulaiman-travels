@@ -4,10 +4,10 @@
     height: 100vh;
     overflow: hidden;
     background-color: #ecb454;
+    /* Desert Gold */
 }
 
-/* --- LAYER 1: PACKAGE (Base Layer) --- */
-/* FIX: pointer-events: auto allows clicks on buttons inside */
+/* --- LAYER 1: PACKAGE --- */
 .package-layer-wrapper {
     position: absolute;
     top: 0;
@@ -15,13 +15,12 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    /* Moves to 15 via JS in Phase 7 */
     background-color: #fff;
     pointer-events: auto;
+    /* Allows clicks */
 }
 
-/* --- LAYER 2: GALLERY (Items Layer) --- */
-/* FIX: pointer-events: none lets clicks pass through the empty transparent parts */
+/* --- LAYER 2: GALLERY --- */
 .gallery-layer-wrapper {
     position: absolute;
     top: 0;
@@ -29,16 +28,16 @@
     width: 100%;
     height: 100%;
     z-index: 2;
-    background-color: transparent;
     pointer-events: none;
+    /* Passthrough clicks */
 }
 
-/* FIX: But actual gallery items should still be clickable if needed */
 .gallery-item {
     pointer-events: auto;
+    /* Clickable items */
 }
 
-/* --- LAYER 3: ABOUT (Middle Layer) --- */
+/* --- LAYER 3: ABOUT --- */
 .about-layer-wrapper {
     position: absolute;
     top: 0;
@@ -49,11 +48,9 @@
     will-change: clip-path;
     background-color: #ecb454;
     pointer-events: none;
-    /* Text is informational only, no clicks needed usually */
 }
 
-/* --- LAYER 4: HERO (Top Layer) --- */
-/* FIX: pointer-events: none lets clicks pass through to layers below when this is transparent */
+/* --- LAYER 4: HERO (The White Sheet) --- */
 .hero-layer-wrapper {
     position: absolute;
     top: 0;
@@ -61,29 +58,52 @@
     width: 100%;
     height: 100%;
     z-index: 10;
+    /* The tear shape */
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
     will-change: clip-path;
     pointer-events: none;
 }
 
-/* FIX: But actual Hero content (text/buttons) MUST be clickable */
+/* KEY FIX: Force the content INSIDE Hero to be clickable and visible */
 .hero {
     width: 100%;
     height: 100%;
     pointer-events: auto;
+    position: relative;
+    z-index: 101;
+    /* Brings text above the plane if needed */
 }
 
-/* --- LAYER 5: PLANE (Overlay) --- */
+/* --- LAYER 5: PLANE --- */
 .plane-layer-wrapper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 100;
+    z-index: 50;
+    /* CHANGED: Lower than Hero Text, but higher than Hero Background */
     pointer-events: none;
     display: flex;
     justify-content: center;
+    align-items: flex-end;
+    /* Align to bottom initially */
+}
+
+/* --- PLANE IMAGE SIZING FIX --- */
+/* We use Height constraints to stop it from zooming in too much */
+.home-plane-img {
+    position: relative;
+    /* Changed from absolute for better centering */
+    width: auto;
+    height: 85vh;
+    /* Base height constraint */
+    max-width: 90vw;
+
+    transform: translateY(35%);
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+    will-change: transform;
+    object-fit: contain;
 }
 
 /* --- FOOTER LAYER --- */
@@ -93,55 +113,37 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 20;
-    /* Highest layer */
+    z-index: 200;
+    /* Highest */
     background-color: #1a1a1a;
     transform: translateY(100%);
     pointer-events: auto;
-    /* Footer links must be clickable */
 }
 
-/* PLANE IMG */
-.home-plane-img {
-    position: absolute;
-    bottom: 0;
-    transform: translateY(35%);
-    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
-    will-change: transform;
+/* --- RESPONSIVE TWEAKS --- */
+/* Adjust plane size for different screens so it doesn't cover text */
 
-    width: 110vw;
-    height: auto;
-    object-fit: contain;
-}
-
-/* RESPONSIVE */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .home-plane-img {
-        width: 110vw;
-        transform: translateY(30%);
+        height: 60vh;
+        /* Smaller on mobile */
+        transform: translateY(20%);
     }
 }
 
 @media (min-width: 1024px) {
     .home-plane-img {
-        width: 60vw;
-        max-width: 900px;
+        height: 100vh;
+        /* Taller on laptops */
+        max-width: 1000px;
+        /* Cap the width */
         transform: translateY(35%);
     }
 }
 
 @media (min-width: 1440px) {
     .home-plane-img {
-        width: 75vw;
-        max-width: 800px;
-        transform: translateY(33%);
-    }
-}
-
-@media (min-width: 1920px) {
-    .home-plane-img {
-        width: 85vw;
-        max-width: 1300px;
-        transform: translateY(35%);
+        height: 95vh;
+        max-width: 1200px;
     }
 }
